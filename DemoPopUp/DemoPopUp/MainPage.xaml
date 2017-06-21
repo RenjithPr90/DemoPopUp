@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DemoPopUp"
+             x:Class="DemoPopUp.MainPage">
+
+    <Grid>
+        <StackLayout VerticalOptions="CenterAndExpand" Spacing="20">
+            <Button VerticalOptions="Center" HeightRequest="50" BackgroundColor="#d1e0e0" Text="Overlay popUp" Command="{Binding OverlayCommand}"/>
+        </StackLayout>
+        <Grid HorizontalOptions="Fill" BackgroundColor="##60000000" IsVisible="{Binding Visibility}" x:Name="AlertGrid">
+            <Grid VerticalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width=".5*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="1" Padding="0"  HasShadow="True" OutlineColor="#e6e6e6">
+                    <Grid BackgroundColor="White" RowSpacing="0" ColumnSpacing="0" HeightRequest="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" XAlign="Center" Font="15" Text="Pop Up" YAlign="Center" TextColor="#666666"/>
+                        <Button Grid.Row="2" Text="Exit" BackgroundColor="#d1e0e0" HorizontalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="50" VerticalOptions="Center" Command="{Binding PopUpButton}"/>
+                        <BoxView Grid.Row="1"  HeightRequest="0.5" BackgroundColor="#e6e6e6"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</ContentPage>
